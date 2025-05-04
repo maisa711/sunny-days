@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsnr6raefevm8"]
+
+[ext_resource type="FontFile" uid="uid://dcjlogdaox7qu" path="res://assets/fonts/PixelOperator8.ttf" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://bhhrq4pwpj010" path="res://scripts/hud.gd" id="1_oo0fn"]
+[ext_resource type="FontFile" uid="uid://dr0301q6ochr7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_5ysmq"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_oo0fn")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Points" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 69.0
+offset_bottom = 18.0
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 8
+text = "Points: 0 "
+
+[node name="Start" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -20.0
+offset_right = 74.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_5ysmq")
+theme_override_font_sizes/font_size = 8
+text = "PRESS SPACE TO START"
+horizontal_alignment = 1
+
+[node name="HighScore" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -91.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 18.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 8
+text = "High Score: 0"
+horizontal_alignment = 2
+
+[node name="Instructions" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -95.0
+offset_right = 66.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("1_ahhtf")
+theme_override_font_sizes/normal_font_size = 8
+text = "Space or [^] to jump
+
+A or [<] to slow down
+
+D or [>] to speed up "
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

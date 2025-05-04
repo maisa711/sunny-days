@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmlqd124511uv"]
+
+[ext_resource type="Shader" uid="uid://8quhd2tw17mh" path="res://scenes/obstacles/outline.gdshader" id="1_cbtw7"]
+[ext_resource type="Texture2D" uid="uid://byp3kop4ji2ur" path="res://assets/Environments/Forest/Forest Enemies Add On Pack/mushroom-spring/small version/sprites/mushroom5.png" id="1_lfaht"]
+[ext_resource type="PackedScene" uid="uid://vmfxnwkarhs3" path="res://scenes/killzone.tscn" id="2_cbtw7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cnsum"]
+shader = ExtResource("1_cbtw7")
+shader_parameter/thickness = 1.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cbtw7"]
+radius = 9.0
+height = 38.0
+
+[node name="Mushroom_Big" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_cnsum")
+position = Vector2(0, -19)
+texture = ExtResource("1_lfaht")
+
+[node name="Killzone" parent="." instance=ExtResource("2_cbtw7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, -19)
+shape = SubResource("CapsuleShape2D_cbtw7")

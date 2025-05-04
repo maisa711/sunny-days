@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bniek4so6xgo3"]
+
+[ext_resource type="Texture2D" uid="uid://cist30usn62bj" path="res://assets/Environments/Forest/Forest Expansion Pack/Sprites/rock.png" id="1_gung0"]
+[ext_resource type="Shader" uid="uid://8quhd2tw17mh" path="res://scenes/obstacles/outline.gdshader" id="1_h5txw"]
+[ext_resource type="PackedScene" uid="uid://vmfxnwkarhs3" path="res://scenes/killzone.tscn" id="2_h5txw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n8xt6"]
+shader = ExtResource("1_h5txw")
+shader_parameter/thickness = 1.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[node name="Rock" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_n8xt6")
+position = Vector2(1, -24)
+texture = ExtResource("1_gung0")
+
+[node name="Killzone" parent="." instance=ExtResource("2_h5txw")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzone"]
+polygon = PackedVector2Array(-41, 0, -30, -24, -28, -35, -5, -45, 20, -43, 26, -21, 34, -14, 41, 0)

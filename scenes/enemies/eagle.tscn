@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://oisf033sm780"]
+
+[ext_resource type="Script" uid="uid://dctl565i0r51d" path="res://scripts/eagle.gd" id="1_031ds"]
+[ext_resource type="Texture2D" uid="uid://b7mguabdij4t3" path="res://assets/Environments/Forest/Forest Enemies Add On Pack/eagle/eagle-sheet.png" id="1_elkqi"]
+[ext_resource type="Shader" uid="uid://8quhd2tw17mh" path="res://scenes/obstacles/outline.gdshader" id="1_v7hxp"]
+[ext_resource type="PackedScene" uid="uid://vmfxnwkarhs3" path="res://scenes/killzone.tscn" id="2_v7hxp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_031ds"]
+shader = ExtResource("1_v7hxp")
+shader_parameter/thickness = 1.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7hxp"]
+atlas = ExtResource("1_elkqi")
+region = Rect2(0, 82, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_031ds"]
+atlas = ExtResource("1_elkqi")
+region = Rect2(40, 82, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d2wr"]
+atlas = ExtResource("1_elkqi")
+region = Rect2(80, 82, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv4lw"]
+atlas = ExtResource("1_elkqi")
+region = Rect2(120, 82, 40, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nrpll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7hxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_031ds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d2wr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv4lw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n2w74"]
+radius = 15.0
+height = 34.0
+
+[node name="Eagle" type="Node2D"]
+script = ExtResource("1_031ds")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_031ds")
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_nrpll")
+autoplay = "default"
+
+[node name="Killzone" parent="." instance=ExtResource("2_v7hxp")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-2, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n2w74")

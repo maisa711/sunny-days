@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://6kba1g7e83gq"]
+
+[ext_resource type="Texture2D" uid="uid://uiax07urfvg" path="res://assets/Environments/Forest/Forest Expansion Pack/Sprites/stomp.png" id="1_ngu5q"]
+[ext_resource type="Shader" uid="uid://8quhd2tw17mh" path="res://scenes/obstacles/outline.gdshader" id="1_wf5vv"]
+[ext_resource type="PackedScene" uid="uid://vmfxnwkarhs3" path="res://scenes/killzone.tscn" id="2_wf5vv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qof83"]
+shader = ExtResource("1_wf5vv")
+shader_parameter/thickness = 1.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[node name="Stump" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_qof83")
+position = Vector2(1, -8)
+texture = ExtResource("1_ngu5q")
+
+[node name="Killzone" parent="." instance=ExtResource("2_wf5vv")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzone"]
+polygon = PackedVector2Array(-19, -14, -15, -27, -6, -27, -2, -22, 14, -22, 18, -14, 18, -3, 26, 7, -20, 7)
